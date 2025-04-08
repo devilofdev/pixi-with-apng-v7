@@ -16,6 +16,8 @@ async function loadAPNG(url: string, app: PIXI.Application) {
   canvas.height = apng.height;
   const context = canvas.getContext("2d");
 
+  apng.numPlays = 0;
+
   if (context) {
     const player = await apng.getPlayer(context);
     player.play();
@@ -35,5 +37,4 @@ async function loadAPNG(url: string, app: PIXI.Application) {
 
 const app = new PIXI.Application({ width: 800, height: 600 });
 document.body.appendChild(app.view as HTMLCanvasElement);
-loadAPNG("output.png", app).catch(console.error);
-// loadAPNG("bear-img.png", app).catch(console.error);
+loadAPNG("/YSL3/StorySong/NoLoop_tata_03.png", app).catch(console.error);
